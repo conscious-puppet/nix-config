@@ -6,17 +6,19 @@
     system.configurationRevision = self.rev or self.dirtyRev or null;
     # Used for backwards compatibility, please read the changelog before changing.
     system.stateVersion = 6;
+    system.primaryUser = username;
     nixpkgs.hostPlatform = system;
     nixpkgs.config.allowUnfree = true;
 
-    security.pam.services.sudo_local.touchIdAuth = true;
+    security.pam.services.sudo_local = {
+      enable = true;
+      touchIdAuth = true;
+      reattach = true;
+    };
 
     users.users.${username} = {
+      name = username;
       home = "/Users/${username}";
-      packages = with inputs.nix-casks.packages.${system}; [
-        brave-browser
-        vlc
-      ];
     };
   };
 }

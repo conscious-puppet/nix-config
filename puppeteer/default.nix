@@ -15,10 +15,10 @@ in
   flake = {
     darwinConfigurations.${hostname} = inputs.nix-darwin.lib.darwinSystem {
       modules = [
+        nixpkgs-overlays
         inputs.mac-app-util.darwinModules.default
         self.puppeteer-configuration
         self.puppeteer-home-manager
-        nixpkgs-overlays
       ];
 
     };
