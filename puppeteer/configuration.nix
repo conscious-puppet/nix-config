@@ -1,4 +1,12 @@
-{ self, inputs, username, hostname, system, ... }: {
+{
+  self,
+  inputs,
+  username,
+  hostname,
+  system,
+  ...
+}:
+{
   flake.puppeteer-configuration = { pkgs, ... }: {
     # does not work with determinate nix. check its config
     nix.enable = false;
@@ -19,6 +27,15 @@
     users.users.${username} = {
       name = username;
       home = "/Users/${username}";
+    };
+
+    system.defaults = {
+      dock.autohide = true;
+
+    };
+    system.keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToControl = true;
     };
   };
 }
