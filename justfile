@@ -7,7 +7,7 @@ fmt:
 
 # switch work home-manager config
 hm-switch:
-  USER="abhishek.singh1" nix run .#work -- switch
+  USER="abhishek.singh1" nix run .#work -- switch --flake .
 
 # switch nix config (unused)
 nx-switch *ARGS:

@@ -9,14 +9,12 @@ in
         {
           inherit pkgs;
           modules = [
+            inputs.mac-app-util.homeManagerModules.default
             ../home
             ./home-manager.nix
             ./zsh.nix
           ];
           extraSpecialArgs = { inherit inputs username; };
-          sharedModules = [
-            inputs.mac-app-util.homeManagerModules.default
-          ];
         };
 
     apps.work.program = "${inputs'.home-manager.packages.default}/bin/home-manager";
