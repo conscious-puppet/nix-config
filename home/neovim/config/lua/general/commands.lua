@@ -100,12 +100,14 @@ local function toggle_zen()
     vim.opt.signcolumn = "yes"
     vim.opt.wrap = false
     vim.g.zen_mode = false
+    vim.opt.conceallevel = 0
   else
     vim.opt.number = false
     vim.opt.relativenumber = false
     vim.opt.signcolumn = "no"
     vim.opt.wrap = true
     vim.g.zen_mode = true
+    vim.opt.conceallevel = 3
   end
 end
 
