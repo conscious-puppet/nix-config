@@ -10,6 +10,7 @@ in
   imports = [
     ./configuration.nix
     ./home-manager
+    ./vaultwarden
     import-args
   ];
   flake = {
@@ -19,8 +20,8 @@ in
         inputs.mac-app-util.darwinModules.default
         self.puppeteer-configuration
         self.puppeteer-home-manager
+        self.puppeteer-vaultwarden
       ];
-
     };
   };
 }

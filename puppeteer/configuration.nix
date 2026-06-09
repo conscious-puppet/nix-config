@@ -1,10 +1,9 @@
-{
-  self,
-  inputs,
-  username,
-  hostname,
-  system,
-  ...
+{ self
+, inputs
+, username
+, hostname
+, system
+, ...
 }:
 {
   flake.puppeteer-configuration = { pkgs, ... }: {
