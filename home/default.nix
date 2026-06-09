@@ -9,6 +9,7 @@
     ./wezterm.nix
     ./zathura.nix
     ./tmux.nix
+    ./zk
   ];
 
   # Nix packages to install to $HOME

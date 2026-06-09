@@ -65,6 +65,9 @@
 
       vim-table-mode
       vim-tmux-navigator
+
+      # zettelkasten
+      zk-nvim
     ];
 
     extraPackages = with pkgs; [

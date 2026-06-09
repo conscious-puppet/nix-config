@@ -13,6 +13,7 @@
       ibrew = "arch -x86_64 /usr/local/bin/brew";
       sshL = "ssh -L 127.0.0.1:5601:127.0.0.1:5601 -L 127.0.0.1:8013:127.0.0.1:8013 -L 127.0.0.1:3000:127.0.0.1:3000 -L 127.0.0.1:8081:127.0.0.1:8080";
       t = "tmux -u attach || tmux -u new";
+      zt = "tmux -L zk -u attach || tmux -L zk -u new -c ~/notes/";
     };
     autosuggestion.enable = true;
     siteFunctions = {
