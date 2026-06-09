@@ -67,5 +67,11 @@
       enableKeyMapping = true;
       remapCapsLockToControl = true;
     };
+
+    # https://github.com/nix-darwin/nix-darwin/issues/786
+    # this won't uninstall it. that needs to be done manually
+    system.activationScripts.extraActivation.text = ''
+      softwareupdate --install-rosetta --agree-to-license
+    '';
   };
 }
