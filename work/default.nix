@@ -1,15 +1,15 @@
-{inputs, ...}:let
+{ inputs, ... }:
+let
   username = "abhishek.singh1";
 in
 {
   perSystem =
-    {
-      self',
-      inputs',
-      pkgs,
-      system,
-      config,
-      ...
+    { self'
+    , inputs'
+    , pkgs
+    , system
+    , config
+    , ...
     }:
     {
       legacyPackages.homeConfigurations."abhishek.singh1" =
@@ -18,6 +18,7 @@ in
           modules = [
             ../home
             ./home-manager.nix
+            ./zsh.nix
           ];
           extraSpecialArgs = { inherit inputs username; };
         };

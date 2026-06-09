@@ -1,7 +1,7 @@
-{username, ...}: {
+{ username, ... }: {
   home = {
-   username = username;
-   homeDirectory = "/Users/${username}";
-   stateVersion = "25.05";
+    username = username;
+    homeDirectory = "/Users/${username}";
+    stateVersion = "25.05";
   };
 }
