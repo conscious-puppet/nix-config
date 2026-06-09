@@ -26,6 +26,7 @@
         ./treefmt.nix
         ./devshell.nix
         ./puppeteer
+        ./work
       ];
       perSystem =
         { self'
