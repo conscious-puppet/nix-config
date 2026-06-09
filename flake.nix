@@ -12,8 +12,6 @@
 
     # for mac
     mac-app-util.url = "github:hraban/mac-app-util";
-    nix-casks.url = "github:atahanyorganci/nix-casks/archive";
-    nix-casks.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

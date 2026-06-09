@@ -5,7 +5,7 @@
     home-manager.useUserPackages = true;
     home-manager.extraSpecialArgs = { inherit inputs system; };
     home-manager.users.${username} = {
-      imports = [ ../../home ./packages.nix ];
+      imports = [ ../home ];
       home.username = username;
       home.homeDirectory = "/Users/${username}";
       home.stateVersion = "25.05";
