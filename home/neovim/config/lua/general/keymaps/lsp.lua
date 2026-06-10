@@ -10,7 +10,7 @@ M.lsp_keymaps = function(client, bufnr)
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
   map("n", "<leader>cl", vim.lsp.codelens.run, opts)
 
-  if client.supports_method("textDocument/formatting") then
+  if client:supports_method("textDocument/formatting") then
     map({ "n", "v" }, "Q", vim.lsp.buf.format, opts)
   end
 

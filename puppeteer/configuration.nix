@@ -1,9 +1,10 @@
-{ self
-, inputs
-, username
-, hostname
-, system
-, ...
+{
+  self,
+  inputs,
+  username,
+  hostname,
+  system,
+  ...
 }:
 {
   flake.puppeteer-configuration = { pkgs, ... }: {
@@ -42,6 +43,18 @@
       controlcenter.BatteryShowPercentage = true;
 
       CustomUserPreferences = {
+        "com.apple.symbolichotkeys" = {
+          AppleSymbolicHotKeys = {
+            # 60 = Select the previous input source (typically Ctrl+Space)
+            "60" = {
+              enabled = false;
+            };
+            # 61 = Select next source in Input menu (typically Ctrl+Opt+Space)
+            "61" = {
+              enabled = false;
+            };
+          };
+        };
         "com.apple.Spotlight" = {
           EnabledPreferenceRules = [
             "Custom.relatedContents"
@@ -61,7 +74,6 @@
           ];
         };
       };
-
     };
     system.keyboard = {
       enableKeyMapping = true;

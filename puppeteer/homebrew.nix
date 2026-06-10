@@ -10,16 +10,17 @@
     homebrew = {
       enable = true;
       brews = [
-        "winetricks" # game
-        "cabextract" # game
-        "sevenzip" # needed by winetricks
-        "zenity" # game
+        # "winetricks" # game
+        # "cabextract" # game
+        # "sevenzip" # needed by winetricks
+        # "zenity" # game
       ];
       casks = [
         "brave-browser"
         "bitwarden"
-        "hyperkey"
-        "heroic" # game
+        # "hyperkey"
+        "karabiner-elements"
+        # "heroic" # game
       ];
       onActivation.cleanup = "uninstall";
     };

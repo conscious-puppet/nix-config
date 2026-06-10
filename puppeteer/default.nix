@@ -9,7 +9,7 @@ in
 {
   imports = [
     ./configuration.nix
-    ./home-manager.nix
+    ./home-manager
     ./vaultwarden
     ./homebrew.nix
     import-args
