@@ -21,6 +21,7 @@
         # "hyperkey"
         "karabiner-elements"
         # "heroic" # game
+        "steam"
       ];
       onActivation.cleanup = "uninstall";
     };

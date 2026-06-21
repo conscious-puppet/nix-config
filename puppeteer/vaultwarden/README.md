@@ -1,55 +1,46 @@
-# Vaultwarden HTTPS
+# Vaultwarden via Tailscale Serve
 
-Vaultwarden serves HTTPS on `0.0.0.0:8222` via Rocket's native TLS.
+Vaultwarden runs on plain HTTP at `127.0.0.1:8222` and is exposed over HTTPS via Tailscale Serve at your tailnet address.
 
-## URLs
+## Prerequisites
 
-| From        | URL                               |
-|-------------|-----------------------------------|
-| This Mac    | `https://localhost:8222`          |
-| LAN / Phone | `https://<IP>:8222` (use your IP) |
+- Tailscale must be installed, authenticated, and running on this Mac
+- You must be on the tailnet to access Vaultwarden
 
-## Certificates
+## URL
 
-Auto-generated on first vaultwarden start into `~/.vaultwarden/ssl/`:
+Access Vaultwarden at your tailnet address, e.g.:
 
-| File               | Purpose                             |
-|--------------------|-------------------------------------|
-| `ca-cert.pem`      | Install on phone/mac                |
-| `server-chain.pem` | Server cert + CA — served by Rocket |
-| `*-key.pem`        | Private keys — never leave this Mac |
-
-Nothing in `ssl/` is committed to git.
-
-## Trust the CA
-
-### macOS
-
-```bash
-sudo security add-trusted-cert -d -r trustRoot \
-  -k /Library/Keychains/System.keychain \
-  ~/.vaultwarden/ssl/ca-cert.pem
+```
+https://puppeteer.taile4816.ts.net
 ```
 
-### Android
+The exact hostname is your machine's Tailscale DNS name (`tailscale status` to check).
 
-1. Copy `~/.vaultwarden/ssl/ca-cert.pem` to your phone
-2. Settings → Security → Encryption & credentials → Install certificate → **CA certificate**
-3. Select the file and confirm
-4. In the Bitwarden app, use your Mac's IP: `https://<IP>:8222`
+## How it works
 
-## Regenerate
+Two launchd daemons run simultaneously:
 
-If your IP changes or certs expire:
+| Daemon | Role |
+|--------|------|
+| `org.nixos.vaultwarden` | Runs Vaultwarden on `127.0.0.1:8222` (HTTP, loopback only) |
+| `org.nixos.tailscale-vaultwarden` | Proxies `https://<tailnet>` → `http://127.0.0.1:8222` via Tailscale Serve |
+
+Tailscale acquires and renews a real TLS certificate automatically. No self-signed certs or manual CA installation on devices.
+
+## Restart after changes
 
 ```bash
-rm -rf ~/.vaultwarden/ssl/
 darwin-rebuild switch --flake .
 sudo launchctl kickstart -k system/org.nixos.vaultwarden
+sudo launchctl kickstart -k system/org.nixos.tailscale-vaultwarden
 ```
 
 ## Common issues
 
-- **Connection refused**: `sudo launchctl list | grep vaultwarden`
-- **Certificate error on phone**: Ensure the CA is installed as a **CA certificate** (not VPN/Wi-Fi cert)
-- **Bitwarden app fails**: Restart vaultwarden after regenerating certs; use IP address, not hostname
+- **Connection refused**: Check both daemons are running:
+  ```bash
+  sudo launchctl list | grep -E '(vaultwarden|tailscale)'
+  ```
+- **Tailscale URL not resolving**: Ensure Tailscale is connected (`tailscale status`) and check your DNS name with `tailscale status --json | jq -r '.Self.DNSName'`
+- **HTTPS error in browser**: Tailscale cert provisioning can take a minute after the serve daemon starts; check `/tmp/tailscale-vaultwarden.log`

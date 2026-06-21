@@ -31,6 +31,8 @@
 
     system.defaults = {
       dock.autohide = true;
+      NSGlobalDomain.AppleICUForce24HourTime = true;
+      menuExtraClock.Show24Hour = true;
       finder = {
         _FXShowPosixPathInTitle = true; # show full path in finder title
         AppleShowAllExtensions = true; # show all file extensions
@@ -44,6 +46,7 @@
 
       CustomUserPreferences = {
         "com.apple.symbolichotkeys" = {
+          # defaults read com.apple.symbolichotkeys AppleSymbolicHotKeys
           AppleSymbolicHotKeys = {
             # 60 = Select the previous input source (typically Ctrl+Space)
             "60" = {
@@ -55,6 +58,7 @@
             };
           };
         };
+        # defaults read com.apple.Spotlight
         "com.apple.Spotlight" = {
           EnabledPreferenceRules = [
             "Custom.relatedContents"
@@ -76,8 +80,8 @@
       };
     };
     system.keyboard = {
-      enableKeyMapping = true;
-      remapCapsLockToControl = true;
+      enableKeyMapping = false;
+      # remapCapsLockToControl = true;
     };
 
     # https://github.com/nix-darwin/nix-darwin/issues/786
