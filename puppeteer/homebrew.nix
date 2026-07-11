@@ -22,6 +22,7 @@
         "karabiner-elements"
         # "heroic" # game
         "steam"
+        "mythic"
       ];
       onActivation.cleanup = "uninstall";
     };

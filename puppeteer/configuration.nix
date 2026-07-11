@@ -30,7 +30,13 @@
     };
 
     system.defaults = {
-      dock.autohide = true;
+      dock = {
+        autohide = true;
+        wvous-tl-corner = 1;
+        wvous-tr-corner = 1;
+        wvous-bl-corner = 1;
+        wvous-br-corner = 1;
+      };
       NSGlobalDomain.AppleICUForce24HourTime = true;
       menuExtraClock.Show24Hour = true;
       finder = {
