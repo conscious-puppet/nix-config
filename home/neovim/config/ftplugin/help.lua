@@ -3,4 +3,3 @@ vim.opt_local.relativenumber = false
 vim.opt_local.signcolumn = "no"
 vim.opt_local.wrap = true
 vim.opt_local.conceallevel = 3
-vim.opt_local.spell = true

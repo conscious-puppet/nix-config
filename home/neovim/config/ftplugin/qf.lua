@@ -9,3 +9,10 @@ map(
   "<Cmd>call setqflist(filter(getqflist(), {idx -> idx != line('.') - 1}), 'r')<CR>",
   { buffer = true, noremap = true }
 )
+
+
+vim.opt_local.number = false
+vim.opt_local.relativenumber = false
+vim.opt_local.signcolumn = "no"
+vim.opt_local.wrap = true
+vim.opt_local.conceallevel = 3
