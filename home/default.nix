@@ -5,6 +5,7 @@
 { pkgs, inputs, lib, ... }: {
   imports = [
     ./neovim
+    ./emacs
     ./zsh.nix
     ./wezterm.nix
     ./zathura.nix

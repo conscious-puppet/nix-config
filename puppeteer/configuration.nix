@@ -62,8 +62,48 @@
             "61" = {
               enabled = false;
             };
+
+            # Change Spotlight Search to Option + Space
+            # "64" = {
+            #   enabled = true;
+            #   value = {
+            #     parameters = [
+            #       32 # ASCII value for Space
+            #       49 # Virtual key code for Space
+            #       524288 # Modifier flag for Option / Alt key
+            #     ];
+            #     type = "standard";
+            #   };
+            # };
+
+            # Disable Spotlight Cmd + Shift + Space
+            "65" = {
+              enabled = false;
+            };
           };
         };
+
+        # defaults read com.apple.HIToolbox
+        "com.apple.HIToolbox" = {
+          # sets keyboard to U.S. layout
+          AppleCurrentKeyboardLayoutInputSourceID = "com.apple.keylayout.U.S.";
+          AppleEnabledInputSources = [
+            {
+              InputSourceKind = "Keyboard Layout";
+              "KeyboardLayout ID" = 0;
+              "KeyboardLayout Name" = "U.S.";
+            }
+          ];
+
+          AppleSelectedInputSources = [
+            {
+              InputSourceKind = "Keyboard Layout";
+              "KeyboardLayout ID" = 0;
+              "KeyboardLayout Name" = "U.S.";
+            }
+          ];
+        };
+
         # defaults read com.apple.Spotlight
         "com.apple.Spotlight" = {
           EnabledPreferenceRules = [
@@ -84,10 +124,6 @@
           ];
         };
       };
-    };
-    system.keyboard = {
-      enableKeyMapping = false;
-      # remapCapsLockToControl = true;
     };
 
     # https://github.com/nix-darwin/nix-darwin/issues/786

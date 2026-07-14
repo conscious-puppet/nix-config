@@ -12,6 +12,7 @@ in
     ./home-manager
     ./vaultwarden
     ./homebrew.nix
+    ./hidutil.nix
     import-args
   ];
   flake = {
@@ -23,6 +24,7 @@ in
         self.puppeteer-home-manager
         self.puppeteer-homebrew
         self.puppeteer-vaultwarden
+        # self.puppeteer-hidutil
       ];
     };
   };

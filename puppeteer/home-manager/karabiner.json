@@ -39,6 +39,18 @@
                     }
                 ]
             },
+            "devices": [
+                {
+                    "description": "Disable natural scroll for the external mouse",
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 16705,
+                        "vendor_id": 3426
+                    },
+                    "ignore": false,
+                    "mouse_flip_vertical_wheel": true
+                }
+            ],
             "name": "Default profile",
             "selected": true,
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
