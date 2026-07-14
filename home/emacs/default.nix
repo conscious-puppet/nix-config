@@ -1,7 +1,7 @@
 
 { pkgs, config, ... }: {
   programs.emacs = {
-    enable = true;
+    enable = false;
     # package = pkgs.emacs-gtk; # Or pkgs.emacs for the basic version
     extraPackages = epkgs: with epkgs; [ solarized-theme nov ];
   };
