@@ -40,9 +40,8 @@
               --exclude .vscode \
               --exclude .cargo \
               --exclude .direnv \
-              --follow --search-path $HOME/work \
-              --search-path $HOME/.config \
-              --search-path $HOME/dev |
+              --follow --search-path $HOME/work-ghc9 \
+              --search-path $HOME/.config |
             fzf --read0
         ) && cd $dir
         local sessionname="$(basename -- $dir)"
