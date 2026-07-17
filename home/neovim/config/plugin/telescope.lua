@@ -126,6 +126,7 @@ telescope.setup({
     },
     mappings = telescope_mappings,
     borderchars = require("general.themes").get_border_chars(),
+    file_ignore_patterns = { ".git/", ".direnv/" },
   },
   pickers = {
     buffers = {
