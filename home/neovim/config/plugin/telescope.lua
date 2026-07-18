@@ -151,3 +151,12 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+
+vim.api.nvim_create_autocmd("WinEnter", {
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    if ft == "TelescopeResults" or ft == "TelescopePrompt" or ft == "TelescopePreview" then
+      vim.wo[args.win].winhighlight = "Search:None"
+    end
+  end,
+})
