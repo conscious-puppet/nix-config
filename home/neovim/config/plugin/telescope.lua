@@ -24,20 +24,29 @@ if telescope_builtin_ok then
     end
   end
 
+  local function withVisualSelection(picker)
+    return function()
+      picker({ default_text = getVisualSelection() })
+    end
+  end
+
   map("n", "<leader>tt", telescope_builtin.resume, opts)
   map("n", "<leader>fw", telescope_builtin.live_grep, opts)
+  map("v", "<leader>fw", withVisualSelection(telescope_builtin.live_grep), opts)
   map("n", "<leader>/", telescope_builtin.live_grep, opts)
-  map("v", "<leader>/", function()
-    local text = getVisualSelection()
-    telescope_builtin.live_grep({ default_text = text })
-  end, opts)
+  map("v", "<leader>/", withVisualSelection(telescope_builtin.live_grep), opts)
   map("n", "<leader><leader>", telescope_builtin.find_files, opts)
+  map("v", "<leader><leader>", withVisualSelection(telescope_builtin.find_files), opts)
   map("n", "<leader>gs", telescope_builtin.git_status, opts)
   map("n", "<leader>gc", telescope_builtin.git_commits, opts)
   map("n", "<leader>fb", telescope_builtin.buffers, opts)
+  map("v", "<leader>fb", withVisualSelection(telescope_builtin.buffers), opts)
   map("n", "<leader>,", telescope_builtin.buffers, opts)
+  map("v", "<leader>,", withVisualSelection(telescope_builtin.buffers), opts)
   map("n", "<leader>fm", telescope_builtin.marks, opts)
+  map("v", "<leader>fm", withVisualSelection(telescope_builtin.marks), opts)
   map("n", "<leader>fo", telescope_builtin.oldfiles, opts)
+  map("v", "<leader>fo", withVisualSelection(telescope_builtin.oldfiles), opts)
   map("n", "<leader>sr", telescope_builtin.registers, opts)
   map("n", "<leader>sk", telescope_builtin.keymaps, opts)
   map("n", "<leader>sc", telescope_builtin.commands, opts)
