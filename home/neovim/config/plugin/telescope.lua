@@ -161,11 +161,25 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 
-vim.api.nvim_create_autocmd("WinEnter", {
+local function hide_search(win)
+  local cur = vim.wo[win].winhighlight
+  vim.wo[win].winhighlight = (cur == "" and "" or cur .. ",") .. "Search:None"
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "TelescopeResults", "TelescopePrompt" },
   callback = function(args)
-    local ft = vim.bo[args.buf].filetype
-    if ft == "TelescopeResults" or ft == "TelescopePrompt" or ft == "TelescopePreview" then
-      vim.wo[args.win].winhighlight = "Search:None"
+    for _, win in ipairs(vim.fn.win_findbuf(args.buf)) do
+      hide_search(win)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopePreviewerLoaded",
+  callback = function()
+    for _, win in ipairs(vim.fn.win_findbuf(vim.api.nvim_get_current_buf())) do
+      hide_search(win)
     end
   end,
 })
