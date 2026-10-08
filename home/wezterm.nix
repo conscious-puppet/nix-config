@@ -46,6 +46,7 @@
         font = wezterm.font_with_fallback({
           {
             family = "Iosevka",
+            weight = "Medium",
           },
           {
             family = "Symbols Nerd Font Mono",

@@ -4,13 +4,14 @@
 # https://nix-community.github.io/home-manager/index.html#sec-usage-configuration
 { pkgs, inputs, lib, ... }: {
   imports = [
-    ./neovim
     ./emacs
-    ./zsh.nix
+    ./neovim
+    ./zk
+    ./opencode.nix
+    ./tmux.nix
     ./wezterm.nix
     ./zathura.nix
-    ./tmux.nix
-    ./zk
+    ./zsh.nix
   ];
 
   # Nix packages to install to $HOME

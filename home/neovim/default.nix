@@ -68,6 +68,10 @@
 
       # zettelkasten
       zk-nvim
+
+      # lean 4
+      lean-nvim
+      plenary-nvim # lean-nvim dependency
     ];
 
     extraPackages = with pkgs; [
@@ -88,6 +92,9 @@
       # Telescope tools
       ripgrep
       fd
+
+      # lean 4 (provides the `lean` and `lake` shims used by leanls)
+      elan
     ];
 
   };

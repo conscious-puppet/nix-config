@@ -74,8 +74,13 @@
       compinit
       _comp_options+=(globdots)               # Include hidden files.
 
+      # vi mode
+      bindkey -v
+      export KEYTIMEOUT=1
+
       # backward search
       bindkey "^R" history-incremental-search-backward
+      bindkey "^S" history-incremental-search-forward
     '';
     envExtra = ''
       PATH="/usr/local/sbin:$PATH"

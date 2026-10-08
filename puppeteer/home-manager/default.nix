@@ -3,6 +3,7 @@
     imports = [ inputs.home-manager.darwinModules.home-manager ];
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
+    home-manager.backupFileExtension = "backup";
     home-manager.extraSpecialArgs = { inherit inputs; };
     home-manager.users.${username} = {
       imports = [ ../../home ./karabiner.nix ];
