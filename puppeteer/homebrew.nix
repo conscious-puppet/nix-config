@@ -24,7 +24,7 @@
       casks = [
         "brave-browser"
         "google-chrome"
-        "bitwarden"
+        # "bitwarden" # does not work
         # "hyperkey"
         "karabiner-elements"
         # "heroic" # game
@@ -32,7 +32,11 @@
         "epic-games"
         "steam"
       ];
-      onActivation.cleanup = "uninstall";
+      onActivation = {
+        autoUpdate = true;
+        upgrade = true;
+        cleanup = "uninstall";
+      };
     };
   };
 }
