@@ -28,8 +28,9 @@
         # "hyperkey"
         "karabiner-elements"
         # "heroic" # game
+        # "mythic" # game
+        "epic-games"
         "steam"
-        "mythic"
       ];
       onActivation.cleanup = "uninstall";
     };
