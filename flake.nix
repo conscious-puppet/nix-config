@@ -12,6 +12,12 @@
 
     # for mac
     mac-app-util.url = "github:hraban/mac-app-util";
+
+    # vim-rex-navigator (no flake.nix of its own)
+    vim-rex-navigator = {
+      url = "github:pankrashin/vim-rex-navigator";
+      flake = false;
+    };
   };
 
   outputs =

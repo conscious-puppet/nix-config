@@ -81,6 +81,18 @@
       # backward search
       bindkey "^R" history-incremental-search-backward
       bindkey "^S" history-incremental-search-forward
+
+      bindkey '^A' beginning-of-line
+      bindkey -M vicmd '^A' beginning-of-line
+
+      bindkey '^E' end-of-line
+      bindkey -M vicmd '^E' end-of-line
+
+      bindkey '^F' forward-char
+      bindkey -M vicmd '^F' forward-char
+
+      bindkey '^B' backward-char
+      bindkey -M vicmd '^B' backward-char
     '';
     envExtra = ''
       PATH="/usr/local/sbin:$PATH"
@@ -89,6 +101,11 @@
       PATH="$HOME/.local/bin:$PATH"
       PATH="/usr/local/opt/llvm@12/bin:$PATH"
       PATH="$HOME/.nix-profile/bin:$PATH"
+
+      # Rex puts its CLI on PATH in the terminals it opens
+      if [ -n "$REX_BIN_DIR" ]; then
+          PATH="$REX_BIN_DIR:$PATH"
+      fi
 
       export PATH
       export EDITOR='nvim'

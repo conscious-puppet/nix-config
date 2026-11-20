@@ -6,6 +6,7 @@
   imports = [
     ./emacs
     ./neovim
+    ./rex
     ./zk
     ./opencode.nix
     ./tmux.nix
@@ -33,7 +34,7 @@
       nix-info
       cachix
       fzf
-      fd # needed for fzf
+      fd # needed for fzf and the Rex project picker (project-session.lua)
 
       graphviz
       watch

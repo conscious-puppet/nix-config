@@ -309,7 +309,8 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-25-11": "nixpkgs-25-11",
-        "treefmt-nix": "treefmt-nix_3"
+        "treefmt-nix": "treefmt-nix_3",
+        "vim-rex-navigator": "vim-rex-navigator"
       }
     },
     "systems": {
@@ -393,6 +394,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "vim-rex-navigator": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792322556,
+        "narHash": "sha256-1a/swQezDuvDLo5ka1YQ72a8yxL9nniMTUUvg37Jpl0=",
+        "owner": "pankrashin",
+        "repo": "vim-rex-navigator",
+        "rev": "4431527aa7c39923456427c3f92ee34ad1bd608b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pankrashin",
+        "repo": "vim-rex-navigator",
         "type": "github"
       }
     }

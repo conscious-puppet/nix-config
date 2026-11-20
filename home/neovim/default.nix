@@ -1,4 +1,7 @@
 { self, inputs, config, pkgs, lib, ... }:
+let
+  vim-rex-navigator = import ../vim-rex-navigator.nix { inherit pkgs inputs; };
+in
 {
   programs.neovim = {
     enable = true;
@@ -64,7 +67,9 @@
       vim-easy-align
 
       vim-table-mode
-      vim-tmux-navigator
+
+      # vim-tmux-navigator
+      vim-rex-navigator
 
       # zettelkasten
       zk-nvim

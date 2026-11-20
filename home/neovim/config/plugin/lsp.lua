@@ -105,6 +105,17 @@ vim.lsp.config("pyright", {
   },
 })
 
+vim.lsp.config("jdtls", {
+  settings = {
+    java = {
+      project = {
+        sourcePaths = { "src/main/java" },
+        outputPath = "target",
+      },
+    },
+  },
+})
+
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("hls")
 vim.lsp.enable("zls")
@@ -116,3 +127,6 @@ vim.lsp.enable("pyright")
 vim.lsp.enable("ruff")
 vim.lsp.enable("ols")
 vim.lsp.enable("rust_analyzer")
+
+vim.lsp.enable("jdtls")
+-- vim.lsp.enable("java_language_server")
