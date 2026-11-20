@@ -1,17 +1,6 @@
-# Solarized Dark, matching wezterm's "Solarized (dark) (terminal.sexy)" scheme.
-#
-# Import it once with:
-#   rex do client.theme.import path=$HOME/.config/rex/solarized-dark.toml
-# Add `-C <label>` when more than one Rex app is connected.
-#
-# The app names the theme after this file, and gives it an ID that is new on
-# every Mac. settings.lua therefore names the theme instead of identifying it,
-# and theme.lua resolves that name to this Mac's ID from the app's preferences,
-# so the same configuration selects it on every Mac after the import.
-#
-# Selection uses the same highlight as the Neovim theme's Visual override
-# (fg base03 on bg yellow) instead of Solarized's base02-on-base03, which is
-# almost invisible against the background.
+# Solarized Dark, matching wezterm. Import this file on each Mac via
+# Settings > Themes. Selection matches Neovim's Visual override: Solarized's
+# own base02-on-base03 selection is too faint against the background.
 
 palette = 0=#002b36
 palette = 1=#dc322f
@@ -35,3 +24,4 @@ cursor-color = #93a1a1
 cursor-text = #002b36
 selection-background = #b58900
 selection-foreground = #002b36
+

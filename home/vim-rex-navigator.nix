@@ -1,6 +1,4 @@
-# Build the vim-rex-navigator plugin from the flake input so Neovim and the
-# Rex configuration (via ~/src/vim-rex-navigator) always run the same pinned
-# source.
+# Pinned vim-rex-navigator for Neovim; Rex loads the same source (home/rex).
 { pkgs, inputs }:
 pkgs.vimUtils.buildVimPlugin {
   pname = "vim-rex-navigator";
