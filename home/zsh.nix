@@ -12,59 +12,11 @@
       brew = "arch -arm64 /opt/homebrew/bin/brew";
       ibrew = "arch -x86_64 /usr/local/bin/brew";
       sshL = "ssh -L 127.0.0.1:5601:127.0.0.1:5601 -L 127.0.0.1:8013:127.0.0.1:8013 -L 127.0.0.1:3000:127.0.0.1:3000 -L 127.0.0.1:8081:127.0.0.1:8080";
-      t = "tmux -u attach || tmux -u new";
-      zt = "tmux -L zk -u attach || tmux -L zk -u new -c ~/notes";
     };
     autosuggestion.enable = true;
     siteFunctions = {
       killport = ''
         kill -9 $(lsof -it:$1)
-      '';
-      f = ''
-        local dir
-        dir=$(
-          cd &&
-            fd -0 -I --type d --hidden \
-              --exclude .git \
-              --exclude node_module \
-              --exclude .cache \
-              --exclude .npm \
-              --exclude .mozilla \
-              --exclude .meteor \
-              --exclude .nv \
-              --exclude .vscode \
-              --exclude .cargo \
-              --exclude .direnv \
-              --follow --search-path $HOME/work \
-              --search-path $HOME/.config \
-              --search-path $HOME/dev |
-            fzf --read0
-        ) && cd $dir
-      '';
-      p = ''
-        local dir
-        local pdir=$(pwd)
-        dir=$(
-          cd &&
-            fd -0 -I --type d --hidden \
-              --exclude .git \
-              --exclude node_module \
-              --exclude .cache \
-              --exclude .npm \
-              --exclude .mozilla \
-              --exclude .meteor \
-              --exclude .nv \
-              --exclude .vscode \
-              --exclude .cargo \
-              --exclude .direnv \
-              --follow --search-path $HOME/work \
-              --search-path $HOME/.config \
-              --search-path $HOME/dev |
-            fzf --read0
-        ) && cd $dir
-        local sessionname="$(basename -- $dir)"
-        tmux -u new-session -A -s $sessionname
-        cd $pdir
       '';
     };
     initContent = ''
