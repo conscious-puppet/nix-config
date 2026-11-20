@@ -40,9 +40,9 @@
       mdcat # cat for markdown
       slides # markdown presentation tool
       # tetex # latex tools, failing with the new repo
-      (tailscale.overrideAttrs (_: {
-        doCheck = false;
-      })) # similar to ngrok
+      # (tailscale.overrideAttrs (_: {
+      #   doCheck = false;
+      # })) # similar to ngrok
       ncdu # Disk usage analyzer
       nix
       # obsidian # note taking app
