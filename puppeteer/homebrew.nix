@@ -1,11 +1,4 @@
-{ self
-, inputs
-, username
-, hostname
-, system
-, ...
-}:
-{
+{ ... }: {
   flake.puppeteer-homebrew = { pkgs, ... }: {
     homebrew = {
       enable = true;
@@ -22,8 +15,7 @@
         # "zenity" # game
       ];
       casks = [
-        "brave-browser"
-        "google-chrome"
+        "duckduckgo"
         # "bitwarden" # does not work
         # "hyperkey"
         "karabiner-elements"
