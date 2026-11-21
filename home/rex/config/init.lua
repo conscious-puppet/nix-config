@@ -24,3 +24,4 @@ if not loaded then
 end
 
 require("project-session")
+require("floating-pane")
