@@ -1,6 +1,7 @@
-# Solarized Dark, matching wezterm. Import this file on each Mac via
-# Settings > Themes. Selection matches Neovim's Visual override: Solarized's
-# own base02-on-base03 selection is too faint against the background.
+# Solarized Dark, matching wezterm. Import on each Mac with the "Import
+# Theme: Solarized Dark" action from the command palette (see settings.lua).
+# Selection matches Neovim's Visual override: Solarized's own base02-on-base03
+# selection is too faint against the background.
 
 palette = 0=#002b36
 palette = 1=#dc322f
