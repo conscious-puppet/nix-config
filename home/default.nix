@@ -52,8 +52,6 @@
 
       podman
       podman-compose
-
-      obsidian
     ];
 
   nix = {
